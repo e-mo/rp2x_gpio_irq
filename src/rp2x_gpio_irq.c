@@ -49,8 +49,10 @@ void rp2x_gpio_irq_enable(
 	// If this is already enabled we should clear old mask first
 	if (info->callback != NULL) {
 		// All interrupt events
-		uint32_t clear_mask = GPIO_IRQ_LEVEL_LOW | GPIO_IRQ_LEVEL_HIGH |
-							  GPIO_IRQ_EDGE_FALL | GPIO_IRQ_EDGE_RISE;
+		uint32_t clear_mask = 
+				GPIO_IRQ_LEVEL_LOW | GPIO_IRQ_LEVEL_HIGH |
+				GPIO_IRQ_EDGE_FALL | GPIO_IRQ_EDGE_RISE;
+
 		gpio_set_irq_enabled(gpio, clear_mask, false);
 	}
 
@@ -64,8 +66,9 @@ void rp2x_gpio_irq_enable(
 
 void rp2x_gpio_irq_disable(uint gpio) {
 	// All interrupt events
-	uint32_t event_mask = GPIO_IRQ_LEVEL_LOW | GPIO_IRQ_LEVEL_HIGH |
-						  GPIO_IRQ_EDGE_FALL | GPIO_IRQ_EDGE_RISE;
+	uint32_t event_mask = 
+			GPIO_IRQ_LEVEL_LOW | GPIO_IRQ_LEVEL_HIGH |
+			GPIO_IRQ_EDGE_FALL | GPIO_IRQ_EDGE_RISE;
 
 	gpio_set_irq_enabled(gpio, event_mask, false);
 
