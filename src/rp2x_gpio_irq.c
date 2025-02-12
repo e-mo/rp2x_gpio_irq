@@ -4,7 +4,7 @@
 // There are 26 IRQ capable GPIO pins
 // 0-22 and 26-28
 // After some though I figured that it was better to just
-// leave a few indexes unused then have to check for and do an
+// leave a few indexes unused than have to check for and do an
 // index translation for pins 26-28 on every function and callback.
 #define GPIO_IRQ_PIN_MAX (29)
 
