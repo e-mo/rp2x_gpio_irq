@@ -1,12 +1,10 @@
 # rp2x_gpio_irq
 
-A three function helper library I wrote while building some interrupt  
-heavy communication routines that required frequent reconfiguring of  
-callbacks.
+A three function helper library I wrote while building some interrupt heavy communication routines that required frequent  
+reconfiguring of callbacks.  
 
-These functions are used *instead* of the standard gpio_irq\* functions  
-from the pico stdlib. Trying to use both together will likely lead to
-some confusing results. 
+These functions are used *instead* of the standard gpio_irq\* functions from the pico stdlib.  
+Trying to use both together will likely lead to some confusing results.   
   
 ## Functions
 ```c
@@ -19,7 +17,6 @@ typedef void(* rp2x_gpio_callback_t)(uint gpio, uint32_t event_mask, void *data)
 //| 
 //| Initialize the default state of the callback dispatch table.
 //| Must be called first. Repeated calls do nothing.
-
 void rp2x_gpio_irq_init(void);
 ```
   
@@ -29,18 +26,12 @@ void rp2x_gpio_irq_init(void);
 //| Configure a GPIO pin for interrupt, set a callback function,
 //| and provide (optional) pointer to be passed to callback function.
 //| 
-//| gpio: GPIO pin
+//|       gpio: GPIO pin
 //| event_mask: Mask for events you wish to trigger an interrupt.
 //|             ex. mask = GPIO_IRQ_EDGE_FALL | GPIO_IRQ_EDGE_RISE;
-//| callback: Interrupt callback function.
-//| data: Option void pointer to user data. Can be NULL.
-
-void rp2x_gpio_irq_enable(
-		uint gpio, 
-		uint32_t event_mask,
-		rp2x_gpio_callback_t callback, 
-		void *data
-); 
+//|   callback: Interrupt callback function.
+//|       data: Option void pointer to user data. Can be NULL.
+void rp2x_gpio_irq_enable(uint gpio, uint32_t event_mask, rp2x_gpio_callback_t callback, void *data); 
 ```
 
 ```c
@@ -49,9 +40,7 @@ void rp2x_gpio_irq_enable(
 //| Disable interrupt on GPIO pin.
 //|
 //| gpio: GPIO pin
-
 void rp2x_gpio_irq_disable(uint gpio);
-); 
 ```
   
 ## Usage
