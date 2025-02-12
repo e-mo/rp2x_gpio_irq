@@ -46,7 +46,6 @@ void rp2x_gpio_irq_enable(
 //|
 //| gpio: GPIO pin
 void rp2x_gpio_irq_disable(uint gpio);
-); 
 ```
   
 ## Usage
