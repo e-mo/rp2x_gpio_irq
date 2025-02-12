@@ -26,11 +26,11 @@ void rp2x_gpio_irq_init(void);
 //| Configure a GPIO pin for interrupt, set a callback function,
 //| and provide (optional) pointer to be passed to callback function.
 //| 
-//| gpio: GPIO pin
+//|       gpio: GPIO pin
 //| event_mask: Mask for events you wish to trigger an interrupt.
 //|             ex. mask = GPIO_IRQ_EDGE_FALL | GPIO_IRQ_EDGE_RISE;
-//| callback: Interrupt callback function.
-//| data: Option void pointer to user data. Can be NULL.
+//|   callback: Interrupt callback function.
+//|       data: Option void pointer to user data. Can be NULL.
 void rp2x_gpio_irq_enable(uint gpio, uint32_t event_mask, rp2x_gpio_callback_t callback, void *data); 
 ```
 
