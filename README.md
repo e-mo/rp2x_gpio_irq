@@ -31,12 +31,7 @@ void rp2x_gpio_irq_init(void);
 //|             ex. mask = GPIO_IRQ_EDGE_FALL | GPIO_IRQ_EDGE_RISE;
 //| callback: Interrupt callback function.
 //| data: Option void pointer to user data. Can be NULL.
-void rp2x_gpio_irq_enable(
-		uint gpio, 
-		uint32_t event_mask,
-		rp2x_gpio_callback_t callback, 
-		void *data
-); 
+void rp2x_gpio_irq_enable(uint gpio, uint32_t event_mask, rp2x_gpio_callback_t callback, void *data); 
 ```
 
 ```c
