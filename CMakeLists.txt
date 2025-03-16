@@ -6,3 +6,6 @@ project(${target} C)
 add_library(${target} INTERFACE)
 target_sources(${target} INTERFACE src/rp2x_gpio_irq.c)
 target_include_directories(${target} INTERFACE src)
+target_link_libraries(${target} INTERFACE 
+	hardware_gpio
+)
