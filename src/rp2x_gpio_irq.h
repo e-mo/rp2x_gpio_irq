@@ -22,6 +22,7 @@
 
 typedef unsigned uint;
 typedef void(* rp2x_gpio_callback_t)(uint gpio, uint32_t event_mask, void *data);
+typedef uint32_t irq_state_t[((NUM_IRQS-1)/32)+1]; 
 
 // Initializes the default state of the callback dispatch table
 // and sets the generic irq callback to the proper function.
@@ -41,5 +42,14 @@ void rp2x_gpio_irq_enable(
 
 // Completely disables irq events on pin
 void rp2x_gpio_irq_disable(uint gpio);
+
+// For disabling all IRQ for timing sensitive applications
+// when you still need to be able to enable GPIO irq.
+// This is impossible with the sdk provided irq disable/restore all functions.
+// I currently do this through the SDK but there is a much more efficient route
+// I will explore later through direct register caching and manipulation.
+// This implementation should be just fine for now.
+void rp2x_irq_disable_all(irq_state_t states);
+void rp2x_irq_restore(irq_state_t states);
 	
 #endif // RP2X_GPIO_IRQ_H
